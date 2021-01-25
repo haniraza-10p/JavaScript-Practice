@@ -779,5 +779,81 @@ let myString = "Eleanor Roosevelt";
 let myRegex = /(Franklin|Eleanor).*Roosevelt/gi; 
 let result = myRegex.test(myString);  
 
-//Debugging: Use typeof to Check the Type of a Variable
+//Remove Items Using splice()
+const arr = [2, 4, 5, 1, 7, 5, 2, 1];
+arr.splice(0,1);
+arr.splice(3,4);
+console.log(arr); //[ 4, 5, 1]
+
+// Add Items Using splice()
+const numbers = [10, 11, 12, 12, 15];
+const startIndex = 3;
+const amountToDelete = 1;
+
+numbers.splice(startIndex, amountToDelete, 13, 14);
+// the second entry of 12 is removed, and we add 13 and 14 at the same index
+console.log(numbers);// returns [ 10, 11, 12, 13, 14, 15 ]
+
+//Copy Array Items Using slice()
+function forecast(arr) {
+
+  var newArr = arr.slice(2,4);
+  return newArr;
+}
+console.log(forecast(['cold', 'rainy', 'warm', 'sunny', 'cool', 'thunderstorms'])); // returns [ 'warm', 'sunny' ]
+
+//Copy an Array with the Spread Operator
+function copyMachine(arr, num) {
+  let newArr = [];
+  while (num >= 1) {
+    newArr.push([...arr]);
+    num--;
+  }
+  return newArr;
+}
+
+console.log(copyMachine([true, false, true], 2)); // [ [ true, false, true ], [ true, false, true ] ]
+
+//Combine Arrays with the Spread Operator
+function spreadOut() {
+  let fragment = ['to', 'code'];
+  let sentence; // Change this line
+  sentence=['learning',...fragment,'is', 'fun'];
+  return sentence;
+}
+
+console.log(spreadOut());
+
+//Check For The Presence of an Element With indexOf()
+function quickCheck(arr, elem) {
+
+  if(arr.indexOf(elem)>=0){
+    return true;
+  }
+  return false;
+}
+console.log(quickCheck(['squash', 'onions', 'shallots'], 'mushrooms'));
+
+//Create complex multi-dimensional arrays
+let myNestedArray = [
+  // Only change code below this line
+  'level 1', //myNestedArray[0]
+  ['level 2'],	// myNestedArray[1][0]
+  [['level 3','deep']],	// myNestedArray[2][0][0] 
+  [[['level 4','deeper']]], // myNestedArray[3][0][0][0]
+  [[[['level 5','deepest']]]] // myNestedArray[4][0][0][0]
+];
+
+//Add Key-Value Pairs to JavaScript Objects
+let foods = {
+  apples: 25,
+  oranges: 32,
+  plums: 28,
+  
+};
+
+foods.bananas = 13;
+foods.grapes = 35;
+foods.strawberries = 27;
+console.log(foods);
 
