@@ -854,6 +854,6 @@ let foods = {
 
 foods.bananas = 13;
 foods.grapes = 35;
-foods.strawberries = 29;
+foods.strawberries = 27;
 console.log(foods);
 
