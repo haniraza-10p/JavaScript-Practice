@@ -55,7 +55,7 @@ function largestOfFour(arr) {
   
     let max = [];
     for(let i=0;i<4;i++){
-      let num=-10000000000000000;
+      let num=-100000000000000000;
       for(let j=0;j<4;j++){
         let temp = arr[i][j];
         if(temp>num){
