@@ -404,3 +404,66 @@ function orbitalPeriod(arr) {
   }
   
   orbitalPeriod([{name : "sputnik", avgAlt : 35873.5553}]);
+
+//Smallest Common Multiple
+function smallestCommons(arr) {
+
+    let max = Math.max(...arr);
+    let min = Math.min(...arr);
+  
+    let sol = max;
+  
+    for (let i = max - 1; i >= min; i--) {
+      if (sol % i) {
+        sol += max;
+        i = max;
+      }
+    }
+    return sol;
+  }
+  
+  smallestCommons([2, 10]);
+
+//Arguments Optional
+function addTogether() {
+
+    var a = arguments[0];
+    var b = arguments[1];
+  
+    if (arguments.length > 1) {
+      var ta = typeof(a);
+      var tb = typeof(b);
+  
+      if (ta != 'number' || tb != 'number')
+      {
+        return undefined;
+      }
+      else {
+        return a + b;
+      }
+    }
+    else
+    {
+      var c = arguments[0];
+      var tc = typeof(c);
+      if(typeof(c)!='number'){
+        return undefined;
+      }
+      if (c) {
+        return function(arg2) {
+          if ( tc != 'number' || typeof(arg2) != 'number') {
+            return undefined;
+          } else {
+            return c + arg2;
+          }
+        };
+      }
+      return undefined;
+    }
+  }
+  addTogether(2, 3) //5
+  addTogether(23, 30) //53
+  addTogether(5)(7) //12
+  addTogether("http://bit.ly/IqT6zt") //undefined
+  addTogether(2, "3")  //undefined
+  addTogether(2)([3])  //undefined
